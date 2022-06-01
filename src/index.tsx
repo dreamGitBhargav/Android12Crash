@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View} from 'react-native';
-import {SportsTabBar} from './sports-bar/sports-bar';
+import {SafeAreaView} from 'react-native';
 import {SportsParams} from './sports-tab/sports-tab.interface';
+import {NavigationContainer} from '@react-navigation/native';
+import {SportsTab} from './SportsTab';
 
 const sports: SportsParams[] = [
   {
@@ -63,17 +64,20 @@ const sports: SportsParams[] = [
 export const App = () => {
   const [state, setState] = useState(0);
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={{width: '100%'}}>
-        <SportsTabBar
-          onSportChange={() => {}}
-          index={state}
-          setIndex={index => {
-            setState(index);
-          }}
-          sports={sports}
-        />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={{flex: 1}}>
+        {/*<View style={{width: '100%', backgroundColor: 'red', height: 400}}>*/}
+        {/*  <SportsTabBar*/}
+        {/*    onSportChange={() => {}}*/}
+        {/*    index={state}*/}
+        {/*    setIndex={index => {*/}
+        {/*      setState(index);*/}
+        {/*    }}*/}
+        {/*    sports={sports}*/}
+        {/*  />*/}
+        {/*</View>*/}
+        <SportsTab />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
